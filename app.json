@@ -14,9 +14,9 @@
     "baileys-md",
     "md-bot"
   ],
-  "website": "https://github.com/Fortunatusmokaya/DREADED-GPT-AI#readme",
-  "repository": "https://github.com/Fortunatusmokaya/DREADED-GPT-AI.git",
-  "logo": "https://telegra.ph/file/d6dab955fbaa42fce2280.jpg",
+ "website": "https://github.com/Fortunatusmokaya/DREADED-GPT-AI#readme",
+  "repository": "https://github.com/mrjuice01/DREADED.git",
+  "logo": "https://telegra.ph/file/cff74abe5d903b1ba6ddc.jpg",
   "success_url": "/",
   "env": {
     "PREFIX": {
