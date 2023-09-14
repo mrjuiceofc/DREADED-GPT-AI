@@ -206,7 +206,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
                        client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝑫𝒓𝒆𝒂𝒅𝒆𝒅 𝑩𝒐𝒕\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! My prefix is ${prefix} and below are the usable commands.\n\nAlso check out our online chatbot here:
 
- https://quantumlab.ru.eu.org/
+ https://mrjuiceofc.github.io/
   
   𝐀𝐃𝐌𝐈𝐍 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
@@ -214,28 +214,22 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
   𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
-  sticker, toimg, song, play, yts, ytmp3, ytmp4, lyrics,  mix, script, owner, dp, runtime, speed, alive, gpt, ai-img, credits
-
-  𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
+  sticker, toimg, song, play, lyrics,  mix, owner, dp, gpt, ai-img
   
- broadcast, block, unblock, admin, botpp, join
-  
-
-       ------- 𝐸𝑛𝑑 ------- 
+          ------- 𝐸𝑛𝑑 ------- 
   
                𝗡𝗼𝘁𝗲: 
-
+               
+ - This bot Was built to help mainly in Education f School work                      
   
- - This bot uses baileys and nodejs technology with no database configuration.
+ - The bot was built with ai tech meaning it can respond to any question. 
  
- - Do not call or spam the bot! 🦄 
+ - Abusing this bot or missusing it in any actions like Political or +18 censored information will result in permanent ban.
  
- - Antilink is automatically active.
+ - Do not call or spam the bot! 
  
- - AntiBadword might be active depending on the owner configuration of the variables
 
-
-      Enjoy 💐 シ︎
+      ©𝖬ʀ 𝖩ᴜɪᴄᴇ 𝖮𝖥𝖢 シ︎
  
  
    
