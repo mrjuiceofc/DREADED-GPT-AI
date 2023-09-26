@@ -15,7 +15,7 @@
     "md-bot"
   ],
  "website": "https://github.com/Fortunatusmokaya/DREADED-GPT-AI#readme",
-  "repository": "https://github.com/mrjuice01/DREADED.git",
+  "repository": "https://github.com/mrjuiceofc/DREADED-GPT-AI.git",
   "logo": "https://telegra.ph/file/cff74abe5d903b1ba6ddc.jpg",
   "success_url": "/",
   "env": {
@@ -25,7 +25,7 @@
 
     },
     "DEV": {
-      "description": "Put any phone numbers you want to be bot owner without + or spaces \",\" Ex: 254114018035, 254741889898 ",
+      "description": "Put any phone numbers you want to be bot owner without + or spaces \",\" Ex: 263780699988, 254741889898 ",
       "required": true
     },
     "NOT_OWNER_MSG": {
