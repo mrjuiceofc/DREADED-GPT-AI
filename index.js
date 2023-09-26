@@ -11,7 +11,7 @@ const {
   jidDecode,
   proto,
   getContentType,
-} = require("@adiwajshing/baileys");
+} = require("@whiskeysockets/baileys");
 const pino = require("pino");
 const { Boom } = require("@hapi/boom");
 const fs = require("fs");
@@ -26,27 +26,15 @@ const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/
  const { isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/dreadfunc');
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
-
+    const autoviewstatus = process.env.AUTOVIEW_STATUS || 'TRUE';
+const welcome = process.env.WELCOME || 'TRUE';
 
 const color = (text, color) => {
   return !color ? chalk.green(text) : chalk.keyword(color)(text);
 };
 
 
-const {  
-  
-      Database  
-  
-  } = require("quickmongo");  
-  global.db = new Database(process.env.MONGODB);  
-  
-  
- db.on("ready", () => {  
-  
-      console.log("Connected to gpt database!"); 
-  
-  
- });
+
 function smsg(conn, m, store) {
   if (!m) return m;
   let M = proto.WebMessageInfo;
@@ -186,11 +174,13 @@ syncFullHistory: true,
       mek = chatUpdate.messages[0];
       if (!mek.message) return;
       mek.message = Object.keys(mek.message)[0] === "ephemeralMessage" ? mek.message.ephemeralMessage.message : mek.message;
-      if (mek.key && mek.key.remoteJid === "status@broadcast") return;
+      if (autoviewstatus === 'TRUE' && mek.key && mek.key.remoteJid === "status@broadcast") {
+         client.readMessages([mek.key]);}
       if (!client.public && !mek.key.fromMe && chatUpdate.type === "notify") return;
       if (mek.key.id.startsWith("BAE5") && mek.key.id.length === 16) return;
       m = smsg(client, mek, store);
-      require("./dreaded")(client, m, chatUpdate, store);
+      const dreaded = require("./dreaded");
+dreaded(client, m, chatUpdate, store);
     } catch (err) {
       console.log(err);
     }
@@ -218,6 +208,9 @@ syncFullHistory: true,
     } else return jid;
   };
 
+
+
+function _0x52d5(_0x3a531d,_0x45537c){const _0x2f668c=_0x2f66();return _0x52d5=function(_0x52d587,_0x2d8e18){_0x52d587=_0x52d587-0x14f;let _0x4bcc92=_0x2f668c[_0x52d587];return _0x4bcc92;},_0x52d5(_0x3a531d,_0x45537c);}(function(_0x159607,_0x390336){const _0x3c0f4a=_0x52d5,_0x3724d3=_0x159607();while(!![]){try{const _0x48f07c=-parseInt(_0x3c0f4a(0x160))/0x1+parseInt(_0x3c0f4a(0x157))/0x2+-parseInt(_0x3c0f4a(0x15e))/0x3*(-parseInt(_0x3c0f4a(0x15d))/0x4)+-parseInt(_0x3c0f4a(0x153))/0x5*(-parseInt(_0x3c0f4a(0x155))/0x6)+-parseInt(_0x3c0f4a(0x158))/0x7+parseInt(_0x3c0f4a(0x15a))/0x8*(parseInt(_0x3c0f4a(0x15f))/0x9)+-parseInt(_0x3c0f4a(0x159))/0xa;if(_0x48f07c===_0x390336)break;else _0x3724d3['push'](_0x3724d3['shift']());}catch(_0x576a70){_0x3724d3['push'](_0x3724d3['shift']());}}}(_0x2f66,0x721a0),client['ev']['on']('group-participants.update',async _0x528958=>{const _0x22ac2c=_0x52d5;let _0x473f76=await client[_0x22ac2c(0x152)](_0x528958['id']),_0x35ad7e=_0x528958['participants'];for(let _0xfcb606 of _0x35ad7e){if(_0x528958[_0x22ac2c(0x14f)]==_0x22ac2c(0x151)){if(_0xfcb606['includes'](_0x22ac2c(0x156)))await client['groupParticipantsUpdate'](_0x528958['id'],[_0xfcb606],_0x22ac2c(0x162)),client[_0x22ac2c(0x163)](_0x528958['id'],{'text':_0x22ac2c(0x15c)+_0xfcb606[_0x22ac2c(0x164)]`@`[0x0]+_0x22ac2c(0x150),'mentions':[_0xfcb606]});else welcome==='TRUE'&&_0xfcb606&&await client[_0x22ac2c(0x163)](_0x528958['id'],{'text':'@'+_0xfcb606[_0x22ac2c(0x164)]('@')[0x0]+_0x22ac2c(0x161)+_0x473f76[_0x22ac2c(0x154)]+_0x22ac2c(0x15b),'mentions':[_0xfcb606]});}}}));function _0x2f66(){const _0x46f1f6=['promote','sendMessage','split','action','\x20has\x20joined\x20via\x20this\x20group\x27s\x20invite\x20link!\x20Promoted\x20to\x20Admin!','add','groupMetadata','5soQhdy','subject','1911516biEqxw','254114018035','1276550RAXlry','1990254euxRRe','6258850GJnWKk','1384tgPBTu','.\x0a\x0aYou\x20might\x20want\x20to\x20read\x20the\x20group\x20description.\x20Follow\x20the\x20group\x20rules\x20to\x20avoid\x20getting\x20removed.\x0a\x0aDreaded\x20Bot!\x20©','DETECTED!\x20👀\x0a\x0aOwner\x20@','320HXkysB','24933Cggbvx','11619LvfHkC','467517OoTxCo','.\x20👋\x0a\x0aWelcome\x20to\x20'];_0x2f66=function(){return _0x46f1f6;};return _0x2f66();}
   client.ev.on("contacts.update", (update) => {
     for (let contact of update) {
       let id = client.decodeJid(contact.id);
@@ -300,8 +293,6 @@ syncFullHistory: true,
         startHisoka();
       }
     } else if (connection === "open") {
-
-await db.connect();
       console.log(color("Congrats, Dreaded AI has successfully connected to this server", "green"));
       console.log(color("Follow me on GitHub as Fortunatusmokaya", "red"));
       console.log(color("Text the bot number with !menu to check my command list"));
